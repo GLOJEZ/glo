@@ -27,27 +27,3 @@ jobs:
           cd /home/zerothw/gloria
           git pull https://${{ secrets.GH_ACCESS_TOKEN }}@github.com/GLOJEZ/glo.git master
           EOF
-
-      - name: Run post-deployment scripts
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@zizix6.com -p21098 << 'EOF'
-          cd /home/zerothw/gloria
-
-          # Run migrations for the main database
-          php artisan migrate --force
-
-          # Run migrations for the tenants database
-          php artisan tenants:migrate --force
-
-          # Seed The datas
-          # php artisan db:seed
-
-          # Install Composer dependencies
-          composer install --no-dev --optimize-autoloader
-
-          # Clear various caches
-          php artisan route:clear
-          php artisan config:clear
-          php artisan cache:clear
-          php artisan view:clear
-          EOF
