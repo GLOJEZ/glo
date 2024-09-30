@@ -21,7 +21,7 @@ jobs:
       # - name: Install sshpass
       #   run: sudo apt-get install -y sshpass
 
-      - name: Pull latest changes from GitHub
+      - name: Pull latest changes from my GitHub
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@zizix6.com -p21098 << 'EOF'
           cd /home/zerothw/gloria
