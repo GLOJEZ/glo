@@ -52,3 +52,19 @@ function updateActiveLink() {
 }
 
 // ... (rest of the code remains unchanged)
+
+document.getElementById('readMoreBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            var content = document.querySelector('.content');
+            var hiddenContent = document.querySelector('.hidden-content');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                hiddenContent.style.display = 'none';
+                this.textContent = 'Read More';
+            } else {
+                content.classList.add('expanded');
+                hiddenContent.style.display = 'block';
+                this.textContent = 'Read Less';
+            }
+        });
