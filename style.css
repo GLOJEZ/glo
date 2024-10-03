@@ -14,8 +14,8 @@
 :root {
     --bg-color: #ffffff;
     --second-bg-color: #f7eded;
-    --text-color: #333333;
-    --main-color: #dc1e1e;
+    --text-color: #3e3636;
+    --main-color: #110101;
 }
 
 html {
@@ -27,6 +27,14 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 section {
@@ -115,6 +123,10 @@ section {
 .home-content p {
     font-size: 1.8rem;
     margin-bottom: 3rem;
+}
+
+.read-more{
+    cursor: pointer;
 }
 
 .social-media a {

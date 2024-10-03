@@ -68,3 +68,27 @@ document.getElementById('readMoreBtn').addEventListener('click', function(e) {
                 this.textContent = 'Read Less';
             }
         });
+
+document.querySelectorAll('.read-more').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        let id = this.dataset.id;
+        let status = this.dataset.status;
+        let extraContent = document.getElementById(id);
+        console.log("status=",status);
+        if(status==0){
+            extraContent.classList.remove('hide');
+            extraContent.classList.add('show');
+            this.innerHTML = "Read Less";
+            this.dataset.status = 1;
+        }else{
+            extraContent.classList.remove('show');
+            extraContent.classList.add('hide');
+            this.innerHTML = "Read More";
+            this.dataset.status = 0;
+        }
+    })
+})
+
+
+        
