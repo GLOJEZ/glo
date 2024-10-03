@@ -91,4 +91,44 @@ document.querySelectorAll('.read-more').forEach(button => {
 })
 
 
+// testimonials
+
+document.addEventListener('DOMContentLoaded', () => {
+            const wrapper = document.querySelector('.testimonial-wrapper');
+            const boxes = document.querySelectorAll('.testimonial-box');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentIndex = 0;
+
+            function showTestimonial(index) {
+                wrapper.style.transform = `translateX(-${index * 100}%)`;
+                boxes.forEach((box, i) => {
+                    box.style.opacity = '0';
+                    box.style.transform = 'translateY(50px)';
+                    setTimeout(() => {
+                        box.style.opacity = i === index ? '1' : '0';
+                        box.style.transform = i === index ? 'translateY(0)' : 'translateY(50px)';
+                    }, 50);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + boxes.length) % boxes.length;
+                showTestimonial(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % boxes.length;
+                showTestimonial(currentIndex);
+            });
+
+            // Initial animation
+            boxes.forEach((box, index) => {
+                setTimeout(() => {
+                    box.style.opacity = index === 0 ? '1' : '0';
+                    box.style.transform = index === 0 ? 'translateY(0)' : 'translateY(50px)';
+                }, index * 200);
+            });
+        });
+
         
