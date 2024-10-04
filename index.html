@@ -300,10 +300,10 @@
     </section>
     
     <!-- contact section design -->
-     <section class="contact" id="contact">
+      <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me!</span></h2>
 
-      <form action="#">
+      <form action="process_form.php" method="POST">
         <div class="input-box">
           <input type="text" placeholder="Full name">
           <input type="email" placeholder="Email Address">
@@ -317,7 +317,26 @@
          <textarea name="Message" id="Enquiry" cols="30" rows="10 " placeholder="your message"></textarea>
          <input type="submit" value="Send message" class="btn">
       </form>
-     </section>
+     </section> 
+
+     <!-- <section class="contact" id="contact"></section>
+  <h2 class="heading">Contact <span>Me!</span></h2>
+
+  <form action="process_form.php" method="POST">
+    <div class="input-box">
+      <input type="text" name="full_name" placeholder="Full name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+    </div>
+
+    <div class="input-box">
+      <input type="tel" name="phone" placeholder="Mobile Number" required>
+      <input type="text" name="subject" placeholder="Email Subject" required>
+    </div>
+
+    <textarea name="message" id="Enquiry" cols="30" rows="10" placeholder="Your message" required></textarea>
+    <input type="submit" value="Send message" class="btn">
+  </form>
+</section> -->
 
     <!-- Rest of the HTML remains unchanged -->
 
