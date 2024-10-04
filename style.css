@@ -218,6 +218,35 @@ section {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
+.slide-in {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-in.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .slide-in {
+        transform: translateY(50px);
+    }
+
+    .slide-in.active {
+        transform: translateY(0);
+    }
+}
+
+/* Optional: Adjust animation for very small screens */
+@media screen and (max-width: 480px) {
+    .slide-in {
+        transform: translateY(30px);
+    }
+}
+
 .heading {
     text-align: center;
     font-size: 4.5rem;

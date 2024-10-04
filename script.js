@@ -131,4 +131,51 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        
+        // for form
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    var formData = new FormData(this);
+    
+    fetch('https://formspree.io/f/xzzbpejb', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            alert('Thank you for your message. It has been sent.');
+            this.reset();
+        } else {
+            response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                    alert(data["errors"].map(error => error["message"]).join(", "));
+                } else {
+                    alert('Oops! There was a problem submitting your form');
+                }
+            })
+        }
+    }).catch(error => {
+        alert('Oops! There was a problem submitting your form');
+    });
+});
+
+
+// image slide in
+
+document.addEventListener('DOMContentLoaded', function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  var slideIn = document.querySelector('.slide-in');
+  if (slideIn) {
+    observer.observe(slideIn);
+  }
+});
