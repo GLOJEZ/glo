@@ -544,7 +544,7 @@ section {
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem 9%;
-    background: var(--main-color);
+    background: var(rgb(209, 199, 199));
   }
 
   .footer-text p {
